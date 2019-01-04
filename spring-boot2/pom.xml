@@ -109,13 +109,13 @@
 			<groupId>com.cosium.code</groupId>
 			<artifactId>maven-git-code-format</artifactId>
 			<version>1.20</version>
-			<executions>
+			<!-- <executions>
 				<execution>
 				<goals>
 					<goal>install-hooks</goal>
 				</goals>
 				</execution>
-			</executions>
+			</executions> -->
 			</plugin>
 
 		</plugins>
