@@ -1,6 +1,7 @@
 package fr.boilerplate.spring.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -63,13 +64,13 @@ public class User extends DateAudit {
   @Column(name = "enabled")
   private Boolean enabled;
 
-  @ManyToMany(fetch = FetchType.EAGER)
+  @ManyToMany(fetch = FetchType.LAZY)
   @JoinTable(
       name = "user_authorities",
-      joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
-      inverseJoinColumns = @JoinColumn(name = "authority_id", referencedColumnName = "id"))
+      joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
+      inverseJoinColumns = {@JoinColumn(name = "authority_id", referencedColumnName = "id")})
   @JsonIgnoreProperties("users")
-  private Set<Authority> authorities;
+  private Set<Authority> authorities = new HashSet<Authority>();
 
   public User() {}
 
