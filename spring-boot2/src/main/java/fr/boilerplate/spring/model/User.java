@@ -59,11 +59,6 @@ public class User extends DateAudit {
   @Column(name = "password", length = 100)
   private String password;
 
-  @NotBlank
-  @NotNull
-  @Column(name = "enabled")
-  private Boolean enabled;
-
   @ManyToMany(fetch = FetchType.LAZY)
   @JoinTable(
       name = "user_authorities",
@@ -81,7 +76,6 @@ public class User extends DateAudit {
       String username,
       String email,
       String password,
-      Boolean enabled,
       Set<Authority> authorities) {
     this.id = id;
     this.firstname = firstname;
@@ -89,7 +83,6 @@ public class User extends DateAudit {
     this.username = username;
     this.email = email;
     this.password = password;
-    this.enabled = enabled;
     this.authorities = authorities;
   }
 
@@ -139,18 +132,6 @@ public class User extends DateAudit {
 
   public void setPassword(String password) {
     this.password = password;
-  }
-
-  public Boolean isEnabled() {
-    return this.enabled;
-  }
-
-  public Boolean getEnabled() {
-    return this.enabled;
-  }
-
-  public void setEnabled(Boolean enabled) {
-    this.enabled = enabled;
   }
 
   public Set<Authority> getAuthorities() {
