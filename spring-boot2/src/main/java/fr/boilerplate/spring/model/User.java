@@ -1,6 +1,7 @@
 package fr.boilerplate.spring.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import fr.boilerplate.spring.model.audit.DateAudit;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
@@ -83,6 +84,21 @@ public class User extends DateAudit {
     this.username = username;
     this.email = email;
     this.password = password;
+    this.authorities = authorities;
+  }
+
+  public User(
+      Long id,
+      String firstname,
+      String lastname,
+      String username,
+      String email,
+      Set<Authority> authorities) {
+    this.id = id;
+    this.firstname = firstname;
+    this.lastname = lastname;
+    this.username = username;
+    this.email = email;
     this.authorities = authorities;
   }
 
