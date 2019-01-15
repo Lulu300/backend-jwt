@@ -1,4 +1,4 @@
-package fr.boilerplate.spring.model;
+package fr.boilerplate.spring.model.audit;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
